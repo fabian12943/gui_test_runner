@@ -1,0 +1,62 @@
+.overview-tab.example-results-tab
+  .overview-tab--header
+    .overview-tab--header-left
+      %span.tab-name= "Results"
+    .overview-tab--header-right
+      - if example.nil?
+        %a.pill.restart-pill.disabled
+          = "Rerun this example"
+      - else
+        %a.pill.restart-pill{href: "/examples/#{example.parameterized_spec_id}/rerun"}
+          = "Rerun this example"
+  .overview-tab--body
+    - if example.nil?
+      .example-results
+        %p.overview-tab--no-content-msg Select an example on the left to see the results.
+    - else
+      .example-results{id: "#{example.parameterized_spec_id}-results"}
+        .results--header
+          .results--header-left
+            %h1.example-location.user-select-all= example.location
+          .results--header-right
+            - if example.capybara_feature?
+              .pill.outlined-pill.capybara-pill
+                %span.pill-text= "Capybara"
+            - if example.javascript_feature?
+              .pill.outlined-pill.javascript-pill
+                %span.pill-text= "JS"
+            - if example.execution_finished?
+              .pill.outlined-pill.runtime-pill
+                %span.pill-text= "Runtime: #{sprintf('%.3f', example.run_time)}s"
+            .pill{class: "#{example.status}-pill"}
+              %span.pill-text= example.status.capitalize
+        .results--body
+          .section
+            %h2.section-heading Description
+            .section-main
+              %p= h(example.full_description)
+          - if example.status == :failed
+            .section
+              %h2.section-heading Exception
+              .section-main
+                %p.exception-message
+                  %samp= h(example.exception_message)
+          .section
+            %h2.section-heading= "Source-Code#{" & Failed Lines" if example.status == :failed}"
+            .section-main
+              - if example.status == :failed
+                - if example.failed_lines.size == 1
+                  - failed_line_numbers = "#{example.failed_line_number}"
+                - else
+                  - failed_line_numbers = "#{example.failed_line_number}-#{example.failed_line_number + example.failed_lines.size - 1}"
+              %pre.line-numbers{'data-line': failed_line_numbers, 'data-line-offset': example.line_number, 'data-start': example.line_number}
+                %code.source-code.language-ruby
+                  - example.source_code.each do |line|
+                    = h(line.rstrip + "\n")
+        .results--footer
+          %small.external-links
+            - if example.execution_finished? && example.screenshots
+              - example.screenshots.each_key do |key|
+                %a.external-link{href: "/examples/#{example.parameterized_spec_id}/screenshots/#{key}", target: '_blank'}
+                  = key.upcase
+            %a.external-link{href: "/examples/#{example.parameterized_spec_id}/rubymine/open"} RubyMine

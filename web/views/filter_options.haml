@@ -1,0 +1,15 @@
+.filter-options
+  %select#type-selection.form-select.type-selection{name: 'type-selection'}
+    %option{selected: true, value: "all"}= "All Types"
+    - test_suite.example_types.each do |type|
+      %option.specific-option{value: type}= type.capitalize
+  %select#state-selection.form-select.state-selection{name: 'state-selection'}
+    %option{selected: true, value: "all"}= "All States"
+    %option{value: "passed"}= "Passed"
+    %option{value: "failed"}= "Failed"
+    %option{value: "pending"}= "Pending"
+    %option{value: "running"}= "Running"
+  .form.searchbar
+    .col-auto
+      %label{for: 'input-search', class: 'visually-hidden'} Search Query
+      %input{type: 'text', class: 'form-control', id: 'input-search', placeholder: 'Search for tests...', name: 'input-search'}

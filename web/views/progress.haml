@@ -1,0 +1,40 @@
+.test-progress
+  .test-suite-progress
+    .test-suite-progress-top
+      %small.progress-infos
+        .progress-infos-line
+          .progress-info
+            .example--status-indicator.bg-running
+            = test_suite.status.total_running_examples
+          .progress-info
+            .example--status-indicator.bg-passed
+            = test_suite.status.total_passed_examples
+          .progress-info
+            .example--status-indicator.bg-failed
+            = test_suite.status.total_failed_examples
+          .progress-info
+            .example--status-indicator.bg-pending
+            = test_suite.status.total_pending_examples
+          .progress-info
+            = "Runtime: #{test_suite.run_time}"
+          .progress-info
+            = "Parallel: #{test_suite.running_parallel? ? 'yes' : 'no'}"
+      .pill.total-progress-in-percent{class: "#{test_suite.status.execution_status}-pill"}
+        - if test_suite.start_time
+          = "#{test_suite.status.progress_in_percent} %"
+        - else
+          = "—"
+    .test-suite-progress-bottom
+      .progress-wrapper
+        .progress
+          - if test_suite.status.percentage_of_passed_examples > 0
+            .progress-bar.passed{role: 'progressbar', style: "width: #{test_suite.status.percentage_of_passed_examples}%;"}
+          - if test_suite.status.percentage_of_failed_examples > 0
+            .progress-bar.failed{role: 'progressbar', style: "width: #{test_suite.status.percentage_of_failed_examples}%;"}
+          - if test_suite.status.percentage_of_pending_examples > 0
+            .progress-bar.pending{role: 'progressbar', style: "width: #{test_suite.status.percentage_of_pending_examples}%;"}
+      .pill.progress-total-finished-pill
+        - if test_suite.start_time
+          = "#{test_suite.status.total_finished_examples} / #{test_suite.total_examples}"
+        - else
+          = "—"

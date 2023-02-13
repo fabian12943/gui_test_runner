@@ -1,0 +1,49 @@
+form {
+    display: inline-block;
+}
+
+.form-control {
+    border-color: var(--light-gray);
+}
+
+.form-control:focus,
+.form-check-input:focus,
+.form-select:focus {
+    border-color: var(--light-gray);
+    box-shadow: none;
+}
+
+.btn {
+    border-radius: var(--border-radius)
+}
+
+.btn-link {
+    text-decoration: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover {
+    color: inherit;
+}
+
+@media (min-width: 576px) {
+    .container {
+        width: 100% !important;
+    }
+}
+
+@media (min-width: 1600px) {
+    .container {
+        max-width: 1500px;
+    }
+}
+
+@media (min-width: 1800px) {
+    .container{
+        max-width: 1700px;
+    }
+}

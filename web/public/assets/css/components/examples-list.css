@@ -1,0 +1,85 @@
+
+/* Examples List */
+
+.example-list--entry {
+    padding: 5px;
+    line-height: normal;
+}
+
+.example-list--entry:not(:last-of-type) {
+    margin-bottom: 5px;
+}
+
+/* Example */
+
+.example {
+    display: flex;
+    align-items: start;
+    border-radius: var(--border-radius);
+}
+
+.example.hidden {
+    display: none;
+}
+
+.example[example-status = running] {
+    color: var(--orange);
+}
+
+.example[example-status = passed] {
+    color: var(--green);
+}
+
+.example[example-status = failed] {
+    color: var(--red);
+}
+
+.example[example-status = pending] {
+    color: var(--dark-gray);
+}
+
+.example:hover {
+    background-color: var(--light-gray);
+}
+
+a.example.up-current {
+    background-color: var(--light-gray);
+}
+
+.example--status-indicator {
+    content: '';
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin-right: 8px;
+    margin-top: 3px;
+    -webkit-mask-image: url('../../icons/circle.svg');
+    -webkit-mask-repeat: no-repeat;
+    mask-image: url('../../icons/circle.svg');
+    mask-repeat: no-repeat;
+}
+
+.example[example-status = running] .example--status-indicator {
+    background-color: var(--orange);
+}
+
+.example[example-status = passed] .example--status-indicator {
+    background-color: var(--green);
+}
+
+.example[example-status = failed] .example--status-indicator {
+    background-color: var(--red);
+}
+
+.example[example-status = pending] .example--status-indicator {
+    background-color: var(--dark-gray);
+}
+
+.example--main {
+    flex: 1;
+    word-break: break-word;
+}
+
+.overview-tab--no-content-msg:has(+ .example-list--entry:not(.hidden)) {
+    display: none;
+}

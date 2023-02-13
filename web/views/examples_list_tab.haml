@@ -1,0 +1,26 @@
+.overview-tab
+  .overview-tab--header
+    .overview-tab--header-left
+      %span.tab-name= "Examples"
+    .overview-tab--header-right
+      %a#rerun-all.pill.restart-pill{href: "/examples/rerun"}
+        = "Rerun all"
+      %a#rerun-failed.pill.restart-pill{href: "/examples/rerun?failed_examples_only=true"}
+        = "Rerun failed"
+  .overview-tab--body
+    .examples-list
+      .example-list--entries{'up-nav': true}
+        - examples.each do |example|
+          %a.example.example-list--entry{ id: "#{example.parameterized_spec_id}-entry",
+                                          href: "/examples/#{example.parameterized_spec_id}/results",
+                                          'example-type': example.type,
+                                          'example-status': example.status,
+                                          'data-search': example.searchable_values.to_json
+                                          'up-alias': "/examples/#{example.parameterized_spec_id}",
+                                          'up-target': '.example-results-tab',
+                                          'up-history': true,
+                                          'up-location': "/examples/#{example.parameterized_spec_id}"
+                                        }
+            .example--status-indicator
+            .example--main
+              = h(example.full_description)

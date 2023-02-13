@@ -1,0 +1,107 @@
+@import '../config/_definitions.css';
+
+.test-progress {
+    flex-grow: 1;
+}
+
+.test-suite-progress {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    flex-grow: 1;
+    line-height: normal;
+}
+
+.test-suite-progress-top {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.progress-infos {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.progress-infos-line {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.progress-info {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    min-width: 45px;
+}
+
+.progress-info .example--status-indicator {
+    margin-top: 0;
+}
+
+.pill.total-progress-in-percent {
+    font-weight: bold;
+    font-size: 1.2em;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.test-suite-progress .pill {
+    min-width: 100px;
+}
+
+.test-suite-progress-bottom {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-grow: 2;
+}
+
+.progress-wrapper {
+    flex-grow: 1;
+}
+
+.progress {
+    height: 3px;
+    overflow: visible;
+    background: var(--dark-gray);
+    border-radius: var(--border-radius);
+    box-shadow: none;
+}
+
+.progress .progress-bar {
+    background-color: var(--blue);
+    height: 8px;
+    position: relative;
+    top: -3px;
+}
+
+.progress .progress-bar.passed {
+    background-color: var(--green);
+}
+
+.progress .progress-bar.failed {
+    background-color: var(--red);
+}
+
+.progress .progress-bar.pending {
+    background-color: var(--dark-gray);
+}
+
+
+.progress .progress-bar:first-of-type {
+    border-top-left-radius: var(--border-radius);
+    border-bottom-left-radius: var(--border-radius);
+}
+
+.progress .progress-bar:last-of-type {
+    border-top-right-radius: var(--border-radius);
+    border-bottom-right-radius: var(--border-radius);
+}
+
+

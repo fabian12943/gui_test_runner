@@ -1,0 +1,42 @@
+:root {
+    --white: #FFF;
+    --black: #000;
+    --light-gray: #D9D9D9;
+    --light-gray-hover: #b2b2b2;
+    --dark-gray: #656565;
+    --red: #C10000;
+    --green: #008726;
+    --orange: #E19200;
+    --blue: #3B71CA;
+    --highlight: #4600cb;
+    --capybara: #592668;
+    --javascript: #c79500;
+
+    --light-gray-rgb: 217, 217, 217;
+
+    --border-radius: 10px;
+}
+
+.running {
+    color: var(--orange);
+}
+
+.bg-running {
+    background-color: var(--orange);
+}
+
+.bg-passed {
+    background-color: var(--green);
+}
+
+.bg-failed {
+    background-color: var(--red);
+}
+
+.bg-pending {
+    background-color: var(--dark-gray);
+}
+
+.bg-black {
+    background-color: #313131;
+}

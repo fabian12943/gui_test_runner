@@ -1,0 +1,10 @@
+.line-highlight {
+    background-color: rgba(193, 0, 0, .15);
+    width: 100%;
+}
+
+code[class*="language-"],
+pre[class*="language-"] {
+    font-size: 0.95rem;
+    line-height: 1.35;
+}

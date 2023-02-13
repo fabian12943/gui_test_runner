@@ -1,0 +1,17 @@
+.layout {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    min-width: 500px;
+}
+
+.layout--main {
+    flex-grow: 1;
+}
+
+.container.header {
+    display: flex;
+    row-gap: 15px;
+    column-gap: 100px;
+    flex-wrap: wrap-reverse;
+}

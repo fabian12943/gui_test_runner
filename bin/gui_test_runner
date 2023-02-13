@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+
+app_dir = File.expand_path('..', __dir__.to_s)
+
+Dir.chdir(app_dir) do
+  exec 'ruby', 'lib/gui_test_runner/web/application_runner.rb'
+end

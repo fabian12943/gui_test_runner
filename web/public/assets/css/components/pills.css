@@ -1,0 +1,78 @@
+@import '../config/_definitions.css';
+
+.pill {
+    min-width: 75px;
+    padding: 0 10px;
+    text-align: center;
+    border-radius: var(--border-radius);
+    font-size: .875em;
+    font-weight: bold;
+    display: inline-block;
+    border: 2px solid black;
+}
+
+.pill.running-pill {
+    color: white;
+    background-color: var(--orange);
+    border-color: var(--orange);
+}
+
+.pill.passed-pill {
+    color: white;
+    background-color: var(--green);
+    border-color: var(--green);
+}
+
+.pill.failed-pill {
+    color: white;
+    background-color: var(--red);
+    border-color: var(--red);
+}
+
+.pill.inactive-pill,
+.pill.pending-pill {
+    color: white;
+    background-color: var(--dark-gray);
+    border-color: var(--dark-gray);
+}
+
+.pill.progress-total-finished-pill {
+    color: white;
+    background-color: var(--black);
+    border-color: var(--black);
+}
+
+.restart-pill {
+    color: var(--black);
+    border-color: var(--black)
+}
+
+.restart-pill:not(.disabled):hover {
+    color: white;
+    background-color: black;
+}
+
+.pill.restart-pill.disabled {
+    color: var(--dark-gray);
+    border-color: var(--dark-gray);
+}
+
+.outlined-pill {
+    color: black;
+    background: none;
+}
+
+.outlined-pill.javascript-pill {
+    color: var(--javascript);
+    border-color: var(--javascript);
+}
+
+.outlined-pill.capybara-pill {
+    color: var(--capybara);
+    border-color: var(--capybara);
+}
+
+.outlined-pill.runtime-pill {
+    color: var(--blue);
+    border-color: var(--blue);
+}
